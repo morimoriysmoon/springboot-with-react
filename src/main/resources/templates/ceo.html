@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/lib/bootstrap.min.css}">
+</head>
+<body>
+    <div class="col-md-12" id="app">
+        <br>
+        <!--div class="alert alert-primary" v-show="show_title">
+            <h1>\{{ page_title }}</h1>
+        </div-->
+        <h2>{{ ceo.name }}</h2>
+        <ul style="list-style-type: none;">
+            <li v-for="employee in ceo.members" :key="employee.id">
+                <div v-if="employee.members">
+                    <h3>{{ employee.name }}</h3>
+                    <ul style="list-style-type: none;">
+                        <li v-for="member in employee.members" :key="member.id">
+                            <h4>{{ member.name }}</h4>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script th:src="@{/js/lib/jquery.min.js}"></script>
+    <script th:src="@{/js/lib/bootstrap.min.js}"></script>
+    <script th:src="@{/js/lib/vue.min.js}"></script>
+    <script th:src="@{/js/lib/axios.min.js}"></script>
+    <script th:src="@{/js/app/main.js}"></script>
+
+</body>
+</html>

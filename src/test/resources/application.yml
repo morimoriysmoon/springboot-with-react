@@ -1,0 +1,13 @@
+# Test
+spring:
+  profiles:
+    active: local
+  jpa:
+    properties:
+      hibernate:
+        dialect:
+---
+spring:
+  profiles: local
+  jpa:
+    show-sql: true
