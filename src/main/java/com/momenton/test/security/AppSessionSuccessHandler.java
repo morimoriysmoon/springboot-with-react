@@ -1,6 +1,10 @@
 package com.momenton.test.security;
 
+import com.momenton.test.domain.User;
+import com.momenton.test.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +20,9 @@ import java.io.IOException;
 @Slf4j
 @Transactional(readOnly = true)
 public class AppSessionSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
@@ -37,9 +44,10 @@ public class AppSessionSuccessHandler extends SimpleUrlAuthenticationSuccessHand
              * 인증에 성공하였으니 필요한 항목을 session에 추가할 수 있다.
              */
 
+            User currentUser = userService.findByUsername(userDetails.getUsername());
+            log.info(String.format("[%d]", currentUser.getId()));
+
             super.onAuthenticationSuccess(request, response, authentication);
         }
     }
-
-
 }
