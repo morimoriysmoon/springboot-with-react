@@ -35,7 +35,7 @@ class CalculatorWrapper extends Component {
 
     handleOpPadClick(op) {
         if (this.state.lettersEntered.length === 0 && this.state.numbersOps.length === 0) {
-            alert('숫자를 먼저 입력하세요.')
+            alert('숫자를 먼저 입력하세요.');
             return;
         }
 

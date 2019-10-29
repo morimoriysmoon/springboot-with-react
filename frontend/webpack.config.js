@@ -7,6 +7,7 @@ module.exports = {
         timer: './TimerPage.js',
         calculator: './CalculatorPage.js',
         login: './LoginPage.js',
+        loginFormik: './LoginFormikPage.js'
     },
     devtool: 'sourcemaps',
     cache: true,
@@ -19,7 +20,7 @@ module.exports = {
         rules:
             [
                 {
-                    test: /\.js?$/,
+                    test: /\.(js|jsx|ts|tsx)?$/,
                     exclude: /(node_modules)/,
                     use: {
                         loader: 'babel-loader',
