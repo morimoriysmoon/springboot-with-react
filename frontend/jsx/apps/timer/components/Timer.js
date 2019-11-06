@@ -59,7 +59,7 @@ class Timer extends Component {
         const { timeOutId, intervalId } = this.state;
 
         if (hour === 0 && min === 0 && sec === 0) {
-            alert('올바른 시간을 설정해 주세요.')
+            alert('올바른 시간을 설정해 주세요.');
             return;
         }
 

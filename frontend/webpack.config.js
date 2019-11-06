@@ -1,5 +1,6 @@
 let path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+//const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // no need for webpack 4
 
 module.exports = {
     context: path.resolve(__dirname, 'jsx'),
@@ -36,6 +37,9 @@ module.exports = {
             ]
     },
     optimization: {
-        minimizer: [new UglifyJsPlugin()],
+        //minimizer: [new UglifyJsPlugin()], // no need for webpack 4
+        minimize: true,
+        splitChunks: {},
+        concatenateModules: true
     }
 };
