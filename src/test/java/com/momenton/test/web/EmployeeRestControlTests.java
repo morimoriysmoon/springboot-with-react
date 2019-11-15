@@ -54,7 +54,12 @@ public class EmployeeRestControlTests {
         Employee david = Employee.builder().name("David").manager(steve).build();
         employeeRepository.save(david);
 
-        EmployeeDto ceo = this.restTemplate.getForObject("/employee/all", EmployeeDto.class);
+        // TODO : security 때문에 문제가 있음.
+        // /login 으로 리다이렉트되어 문제있음
+        EmployeeDto ceo = this.restTemplate
+                .withBasicAuth("admin", "1q2w3e")
+                .getForObject("/employee/all", EmployeeDto.class);
+
         assertThat(ceo.getName(), is("Jamie"));
 
         List<EmployeeDto> managers = ceo.getMembers();
