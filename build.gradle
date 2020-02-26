@@ -74,9 +74,17 @@ configurations {
 }
 
 node {
-    download = true
-    nodeModulesDir = file("${project.projectDir}/frontend")
+    version = '12.16.1'
     yarnVersion = '1.19.1'
+    download = true
+
+    workDir = file("${project.buildDir}/nodejs")
+    nodeModulesDir = file("${project.projectDir}/frontend")
+    yarnWorkDir = file("${project.buildDir}/yarn")
+}
+
+yarn_install {
+    args = ['--network-timeout',  '1000000']
 }
 
 task webpack(type: YarnTask, dependsOn: yarn_install) {
