@@ -1,0 +1,9 @@
+.git/
+.gradle/
+.idea/
+build/
+*.iml
+node_modules/
+frontend/package-lock.json
+frontend/yarn-error.log
+src/main/resources/static/js/dist/*.js
