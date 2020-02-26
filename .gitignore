@@ -7,3 +7,6 @@ node_modules/
 frontend/package-lock.json
 frontend/yarn-error.log
 src/main/resources/static/js/dist/*.js
+frontend/yarn.lock
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
